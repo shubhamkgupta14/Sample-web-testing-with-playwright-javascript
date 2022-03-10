@@ -1,0 +1,17 @@
+{
+  "name": "sample-web-testing-with-playwright-javascript",
+  "version": "1.0.0",
+  "description": "sample-web-testing-with-playwright-javascript",
+  "main": "index.js",
+  "scripts": {
+    "run:all": "playwright test",
+    "run:file": "playwright test tests/first.spec.js",
+    "run:chrome": "playwright test tests/first.spec.js --project=chromium"
+  },
+  "keywords": [],
+  "author": "shubhamkgupta",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.19.2"
+  }
+}
