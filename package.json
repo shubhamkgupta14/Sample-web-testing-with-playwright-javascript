@@ -6,7 +6,9 @@
   "scripts": {
     "run:all": "playwright test",
     "run:file": "playwright test tests/first.spec.js",
-    "run:chrome": "playwright test tests/first.spec.js --project=chromium"
+    "run:chrome": "npm run run:file -- --project=chromium",
+    "run:reporter": "npm run run:chrome -- --reporter=dot",
+    "open:report": "playwright show-report"
   },
   "keywords": [],
   "author": "shubhamkgupta",
