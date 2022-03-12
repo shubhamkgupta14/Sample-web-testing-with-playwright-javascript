@@ -6,12 +6,21 @@
   "scripts": {
     "run:all": "playwright test",
     "run:file": "playwright test tests/first.spec.js",
-    "run:chrome": "playwright test tests/first.spec.js --project=chromium"
+    "run:chrome": "npm run run:file -- --project=chromium",
+    "run:reporter": "npm run run:chrome -- --reporter=dot",
+    "open:report": "playwright show-report",
+    "allure-report": "npm run run:chrome -- --reporter=line,allure-playwright",
+    "allure-generate": "allure generate ./allure-results --clean",
+    "prerun:allure": "if exist allure-results (rmdir /S /Q allure-results && mkdir allure-results)",
+    "run:allure": "npm run allure-report || npm run allure-generate",
+    "posrun:allure": "allure open -h localhost ./allure-report"
   },
   "keywords": [],
   "author": "shubhamkgupta",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.19.2"
+    "@playwright/test": "^1.19.2",
+    "allure-commandline": "^2.17.2",
+    "allure-playwright": "^2.0.0-beta.15"
   }
 }
